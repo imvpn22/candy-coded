@@ -1,6 +1,7 @@
 package com.example.vpn.candycoded;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
@@ -23,7 +24,7 @@ public class MainActivity extends AppCompatActivity {
         textView.setText(R.string.products_title);
 
         // An arrayList to feed the listView
-        ArrayList<String> candy_list = new ArrayList<>();
+        final ArrayList<String> candy_list = new ArrayList<>();
         candy_list.add("Tropical Wave");
         candy_list.add("Berry Bouncer");
         candy_list.add("Grape Gummer");
@@ -62,8 +63,9 @@ public class MainActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
-                Toast toast = Toast.makeText(MainActivity.this, "" + i, Toast.LENGTH_SHORT);
-                toast.show();
+                Intent detailIntent = new Intent(MainActivity.this, DetailActivity.class);
+                detailIntent.putExtra("candy_name", candy_list.get(i));
+                startActivity(detailIntent);
             }
         });
 
