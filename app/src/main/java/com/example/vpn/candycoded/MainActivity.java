@@ -1,10 +1,14 @@
 package com.example.vpn.candycoded;
 
+import android.content.Context;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
+import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
 import android.widget.ListView;
 import android.widget.TextView;
+import android.widget.Toast;
 
 import java.util.ArrayList;
 
@@ -18,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
         TextView textView = this.findViewById(R.id.text_view_title);
         textView.setText(R.string.products_title);
 
+        // An arrayList to feed the listView
         ArrayList<String> candy_list = new ArrayList<>();
         candy_list.add("Tropical Wave");
         candy_list.add("Berry Bouncer");
@@ -35,15 +40,32 @@ public class MainActivity extends AppCompatActivity {
         candy_list.add("Twist 'n' Shout");
         candy_list.add("Beary Squad Goals");
 
+        // Create an Adapter
         ArrayAdapter<String> adapter = new ArrayAdapter<>(
                 this,
                 R.layout.list_item_candy,
                 R.id.text_view_candy,
                 candy_list
         );
-
         ListView listView = this.findViewById(R.id.list_view_candy);
-
         listView.setAdapter(adapter);
+
+        // Add toast on app load
+        Context context = this;
+        String text = "App loaded";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, text, duration);
+        toast.show();
+
+        // Aad toast to listItems
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> adapterView, View view, int i, long l) {
+                Toast toast = Toast.makeText(MainActivity.this, "" + i, Toast.LENGTH_SHORT);
+                toast.show();
+            }
+        });
+
     }
 }
