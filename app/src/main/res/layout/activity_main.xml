@@ -34,6 +34,21 @@
         android:textAlignment="center"
         android:textSize="@dimen/title_size" />
 
+    <LinearLayout
+        android:id="@+id/linlaHeaderProgress"
+        android:layout_width="fill_parent"
+        android:layout_height="fill_parent"
+        android:gravity="center"
+        android:orientation="vertical"
+        android:visibility="gone">
+
+        <ProgressBar
+            android:id="@+id/pbHeaderProgress"
+            style="?android:attr/progressBarStyle"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"></ProgressBar>
+    </LinearLayout>
+
     <ListView
         android:id="@+id/list_view_candy"
         android:layout_width="match_parent"

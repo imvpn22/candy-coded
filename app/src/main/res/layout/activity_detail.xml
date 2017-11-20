@@ -1,9 +1,24 @@
 <?xml version="1.0" encoding="utf-8"?>
-<android.support.constraint.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:orientation="vertical"
     tools:context="com.example.vpn.candycoded.DetailActivity">
+
+    <android.support.design.widget.AppBarLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content">
+
+        <android.support.v7.widget.Toolbar
+            android:id="@+id/toolbar"
+            android:layout_width="match_parent"
+            android:layout_height="40sp"
+            app:title="my toolbar"
+            app:titleTextColor="#13cbe7" />
+    </android.support.design.widget.AppBarLayout>
+
 
     <TextView
         android:id="@+id/text_view_name"
@@ -13,4 +28,4 @@
         tools:ignore="MissingConstraints"
         tools:layout_editor_absoluteX="112dp"
         tools:layout_editor_absoluteY="60dp" />
-</android.support.constraint.ConstraintLayout>
+</LinearLayout>
