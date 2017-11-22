@@ -14,12 +14,13 @@
 
     <ImageView
         android:id="@+id/imageView"
-        android:layout_width="wrap_content"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:adjustViewBounds="true"
         android:contentDescription="@string/image_of_store"
         android:cropToPadding="false"
         android:padding="0dp"
+        android:scaleType="centerCrop"
         app:srcCompat="@drawable/home_image" />
 
     <TextView
@@ -28,11 +29,13 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginTop="0dp"
+        android:fontFamily="casual"
         android:paddingBottom="@dimen/activity_padding"
         android:paddingTop="@dimen/activity_padding"
         android:text="@string/products_title"
         android:textAlignment="center"
-        android:textSize="@dimen/title_size" />
+        android:textSize="@dimen/title_size"
+        android:textStyle="bold" />
 
     <LinearLayout
         android:id="@+id/linlaHeaderProgress"
