@@ -13,12 +13,10 @@ import android.widget.ListView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.loopj.android.http.AsyncHttpClient;
 import com.loopj.android.http.TextHttpResponseHandler;
-
-import org.json.JSONArray;
-import org.json.JSONException;
-import org.json.JSONObject;
 
 import java.util.ArrayList;
 
@@ -66,7 +64,7 @@ public class MainActivity extends AppCompatActivity {
                         Log.d("AsyncHttpClient", "response = " + responseString);
 
 
-                        try {
+                        /*try {
                             JSONArray temp = new JSONArray(responseString);
                             for (int i = 0; i < temp.length(); i++) {
                                 JSONObject object = temp.getJSONObject(i);
@@ -76,7 +74,22 @@ public class MainActivity extends AppCompatActivity {
                             linearLayout.setVisibility(View.GONE);
                         } catch (JSONException e) {
                             e.printStackTrace();
+                        }*/
+
+                        // Using Gson to put data in
+                        Gson gson = new GsonBuilder().create();
+                        Candy[] candies = gson.fromJson(responseString, Candy[].class);
+
+                        // Add candy names to ListView
+                        adapter.clear();
+                        for (Candy candy : candies) {
+                            adapter.add(candy.name);
                         }
+
+                        // Notify the adapter
+                        //adapter.notifyDataSetChanged();
+                        // Remove the loading icon
+                        linearLayout.setVisibility(View.GONE);
 
                     }
                 }
@@ -102,3 +115,4 @@ public class MainActivity extends AppCompatActivity {
     }
 
 }
+

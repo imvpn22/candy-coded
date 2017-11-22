@@ -1,2 +1,2 @@
 # candy-coded
-Candy coded android application
+CandyCoded android application

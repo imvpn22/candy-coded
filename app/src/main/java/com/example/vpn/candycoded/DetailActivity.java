@@ -21,7 +21,7 @@ public class DetailActivity extends AppCompatActivity {
         if (intent.hasExtra("candy_name")) {
             candyName = intent.getStringExtra("candy_name");
         }
-
+        getSupportActionBar().setDisplayHomeAsUpEnabled(true);
         getSupportActionBar().setTitle(candyName);
 
         TextView textView = this.findViewById(R.id.text_view_name);

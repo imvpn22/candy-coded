@@ -14,8 +14,8 @@
         <android.support.v7.widget.Toolbar
             android:id="@+id/toolbar"
             android:layout_width="match_parent"
-            android:layout_height="40sp"
-            app:title="my toolbar"
+            android:layout_height="?attr/actionBarSize"
+            app:title="Candy Name"
             app:titleTextColor="#13cbe7" />
     </android.support.design.widget.AppBarLayout>
 
